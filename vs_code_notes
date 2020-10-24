@@ -1,0 +1,19 @@
+1. ctrl + b, for collapse sidebar
+2. Drag file to open side by side
+3. Command Pallet, ctrl + shift + p list of shortcuts 
+4. ctrl + tab, ctrl + shift + tab to navigate open files in vs code
+5. ctrl + d to select word 
+6. emmet ! to generate html
+7. cascadia font
+8. prettier extension, then go to settings format on save.
+9. quokka for logging on vs code itself
+10. Live Server,open pallet and do live server to view website
+11. cobalt 2 theme
+12. auto update , if you make changes to your tag the end tag would also change
+13. bracket pair colorizer
+14. cloak, css peek
+15. Debugger for chrome
+16. ES7 React/Redux/ GraphQL/React-Native snippets
+17. Markdown -- extension
+18. Write snippets with "key", "prefix" and other fields. eg console.log($1);" ,"$0" 
+ 

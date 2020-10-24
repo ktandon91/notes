@@ -1,3 +1,7 @@
 $ git config --global user.name "Your name here"
 $ git config --global user.email "your_email@example.com"
 $ git config --global color.ui true
+
+ref error, make sure the url is https and not ssh
+    git remote set-url origin https://github.com/ktandon91/notes.git
+

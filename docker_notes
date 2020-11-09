@@ -1,0 +1,63 @@
+1. docker run image
+2. run = create + start
+3. docker system prune
+4. docker exec -it containerId sh
+5. docker ps
+6. docker stop containerId
+7. docker kill containerId
+
+##BLueprint of a dockerfile
+
+1. Specify base image
+2. Run some commands
+3. Specify start command
+
+docker build .
+
+Q - how to check cached version of images
+????????
+
+docker run -p 8080:8080 imagename
+             host:docker
+
+TO remove all containers
+    docker rm $(docker ps -a -q)
+
+To remove image
+    docker image rm imageID
+
+docker run imagename  | docker-compose up
+docker build . + docker run imagename | docker-compose up --build
+
+###### BLueprint of docker compose #####
+1. specify version of docker compose
+2. specify services
+
+docker stop containerid | docker-compose down
+
+restart containers that crashes
+
+##### Retart Policies ####
+no, always, on-failure "will restart on error code", unless-stopped "stopped by developer"
+
+docker-compose ps
+
+### changes to dockerfile ########
+
+If you are running on Windows, please read this: Create-React-App has some issues detecting when files get changed on Windows based machines.  To fix this, please do the following:
+
+In the root project directory, create a file called .env
+
+Add the following text to the file and save it: CHOKIDAR_USEPOLLING=true
+
+
+## volume through docker cli ########
+docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app 8f15fd4ed5d9
+
+above command indicated map everything from local system to docker except the node_modules folder
+
+docker attach containerId # attaches standard input/output/error of process to local terminal
+
+
+##login to docker cli#####
+docker login

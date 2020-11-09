@@ -1,0 +1,15 @@
+Elastic beanstalk doesn't know of its own how to run containers
+
+EBS depends of AWS container services for task definitions
+
+documentation for task definition
+
+Create RDS and Elastic Cache
+
+Create a security group and assign a default vpn 
+
+Assign security group to all 3, elastic beanstalk, RDS and ElastiCache
+
+Add environment variables in EBS db
+
+All docker containers have access to all EBS env variables

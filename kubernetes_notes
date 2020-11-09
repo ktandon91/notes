@@ -1,0 +1,97 @@
+1. Kubernetes is used for scaling
+2. Cluster = master + 1 or more nodes, node is used to run some no. of containers.
+Node is a physical or virtual machine. 
+3. Outside cluster is Load Balancer
+
+* Dev use minikube
+* Prod - AWS Elastic container for kubernetes (EKS), Google Kubernetes Engine (GKE)
+* minikube manages VM (node)
+* kubectl manages containers in the node
+
+* kubectl cluster-info to check status of cluster
+* One config file per object, manually networking have to be defined in separate file.
+
+* config file is used to create an object, example of object types statefulset, replicacontroller, pod, service
+
+Pod is used to run a container
+Service is used for networking
+
+* 4 sub types services
+ClusterIP (exposes a set of pods to other objects in the cluster)
+NodePort (exposes container to the outside world, only good for dev purposes)
+LoadBalancer
+Ingress
+
+* kubectl apply -f <configfilename>
+* kubectl get pods
+* kubectl get services
+
+###### Imp Takeaways ######
+1. Kubernetes is a system to deploy containerized apps.
+2. Node are individual machines/vms having docker, that run containers.
+3. Masters are machines (or vms) with a set of programs to manage nodes.
+4. Kubernetes didn't build our images, it got from somewhere else
+5. Kubernetes Master decides where to run each container, each node can run dissimilar set of containers.
+6. To deploy something, we update the desired state of the master with a config file.
+7. The master works constantly to meet your desired state.
+
+Imperative Deployment - Do exactly what we tell you
+Declarative Deployement - We want this, do it on your own
+
+*Leave kind: Pod, and pod-name same to automatically apply changes in declarative approach using kubernetes master.
+
+Deployment - contains a set of pods, ensuring correct config. 
+
+* to delete an object kubectl delete -f <configFile> 
+* kubectl get deployments
+
+*kubectl get pods -o wide #additional info like ip
+*kubectl describe pods
+
+#### update img version
+1. Tag image and push to dockerhub
+2. Run kubectl command to force deployment to use the new img.
+3. kubectl set image <obj_type>/<obj_name> <container_name> = <new image to use>
+kubectl set image deployment/client-deployment client-container = ktandon1991/docker-complex-client:v2
+
+
+## path to production
+1. create config file for each service and deployment
+2. Test locally
+3. Create github/travis flow to build images and deploy
+4. Deploy app to cloud provider
+
+## Persistence Volume Claims
+Volume exists inside of pod
+Persistent Volume exists on host
+PVC - 
+kubectl get pv 
+kubectl get pvc
+
+kubectl get storageclass
+kubectl describe storageclass
+
+## delete all deployments 
+kubectl delete --all deployments
+
+#delete a pod
+kubectl delete pods <podName>
+
+#deleting deployments
+kubectl get deployments
+kubectl delete deployments <deploymentName>
+
+##Secret
+kubectl create secret generic <secrer_name> --from-literal key=value
+ kubectl create secret generic pgpassword --from-literal PGPASSWORD=12345
+kubectl get secrets
+
+## ingress-nginx and not kubernetes-ingress
+
+#kubernetes prod env
+1. Create github repo 
+2. Tie repo to Travis CI -> used to push code to kubernetes cluster      
+3. Create Google Cloud Project
+4. Enable Billing for the Project
+5. Add Deployment scripts to the repo.
+

@@ -95,3 +95,11 @@ kubectl get secrets
 4. Enable Billing for the Project
 5. Add Deployment scripts to the repo.
 
+## installing travis cli in a docker image
+docker run -it -v ${pwd}:/app ruby:2.3 something
+gem install travis --no-rdoc --no-ri 
+gem install travis
+travis login
+Copy Json file into the volumed directory
+travis encrypt-file service-account.Json
+
